@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>拼一拼 99买手机了</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name='apple-touch-fullscreen' content='yes'>
+		<meta name="full-screen" content="no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="address=no" />
+
+		<link rel="stylesheet" href="asset/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="asset/plug/swiper/swiper-3.4.0.min.css" />
+		<link rel="stylesheet" href="asset/css/style.css" />
+
+		<script src="asset/js/mr-app.js"></script>
+		<script src="asset/plug/swiper/swiper-3.4.0.min.js"></script>
+		<script src="asset/js/js.js"></script>
+
+	</head>
+
+	<body style="padding-bottom:1.5rem">
+		<div class="float" data-name="开奖规则">
+			<div class="inner">
+				<div class="txt">
+					<h3>开奖规则</h3>
+					<p class="f-tal">开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字</p>
+					<p class="f-tal">开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字</p>
+					<p class="f-tal">开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字开奖规则描述文字</p>
+				</div>
+				<a href="#" class="btn full" onclick="closeLayer('[data-name=开奖规则]')">知道了</a>
+			</div>
+		</div>
+		<div class="float" data-name="中奖">
+			<div class="inner">
+				<div class="txt">
+					<p class="f-tal">恭喜您<b class="pink">Mr王</b>，您的团（<b class="pink">ID：AsYn0001</b>）在平团活动中中奖，获得99元购机资格，请您在下方填写您的联系方式，以便我们能及时联系到您</p>
+					<input type="text" placeholder="请输入手机号" />
+				</div>
+				<button class="btn full" onclick="submitTel(this)">保存</button>
+			</div>
+		</div>
+		<div class="mask"></div>
+
+		<div class="search-top">
+			<b></b>
+			<a href="#" class="rule-note" onclick="openLayer('[data-name=开奖规则]');">开奖规则</a>
+			<p><span class="tx"><img src="http://lorempixel.com/750/562?q=3" /></span><span class="name">团长：王超人</span></p>
+		</div>
+		<div class="list-jiang">
+			<ul>
+				<li flex="main:justify"><span>团 ID:<b>Asyn0001</b></span><span>未中奖</span></li>
+				<li flex="main:justify"><span>团 ID:<b>Asyn0001</b></span><span>未中奖</span></li>
+				<li flex="main:justify"><span>团 ID:<b>Asyn0001</b></span><span>未中奖</span></li>
+				<li flex="main:justify"><span>团 ID:<b>Asyn0001</b></span><span>未中奖</span></li>
+				<li flex="main:justify"><span>团 ID:<b>Asyn0001</b></span><span><a href="#" onclick="openLayer('[data-name=中奖]')">中奖<b>填写资料</b></a></span></li>
+			</ul>
+		</div>
+		<img class="foot-logo" src="asset/img/ps1/u516.png" />
+		<div class="fix-bot-btns" flex="box:mean">
+			<a href="#">活动首页</a>
+			<a href="#">我的团</a>
+		</div>
+		<div class="count-code" data-name="统计代码">
+			<script type="text/javascript">
+				var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+				document.write(unescape("%3Cspan id='cnzz_stat_icon_1264381987'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1264381987%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function submitTel(obj) {
+			var mobile = $(obj).closest('.float').find('input').val();
+			console.log(mobile)
+			if(!(/^1(3|4|5|7|8)\d{9}$/.test(mobile))) {
+				alertTest("手机号码有误，请重填");
+				return false;
+			}
+			$(obj).attr("disabled", true);
+			$.ajax({
+				type: "post",
+				url: "",
+				async: false,
+				dataType: "json",
+				data: {
+					"channel_no": channel_no,
+					"telphone": mobile
+				},
+				success: function(d) {
+					var code = d.code;
+					if(code == 0) {
+						alertTest("请拿着正确渠道访问接口")
+					}
+					if(code == 1) {
+						alertTest("信息保存成功！")
+						$(obj).closest('.mask').hide();
+						$(obj).attr("disabled", false)
+					}
+				}
+			});
+		}
+	</script>
+
+</html>

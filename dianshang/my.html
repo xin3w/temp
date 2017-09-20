@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>拼一拼 99买手机了</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name='apple-touch-fullscreen' content='yes'>
+		<meta name="full-screen" content="no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="address=no" />
+
+		<link rel="stylesheet" href="asset/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="asset/plug/swiper/swiper-3.4.0.min.css" />
+		<link rel="stylesheet" href="asset/css/style.css" />
+
+		<script src="asset/js/mr-app.js"></script>
+		<script src="asset/plug/swiper/swiper-3.4.0.min.js"></script>
+		<script src="asset/js/js.js"></script>
+
+	</head>
+
+	<body style="padding-bottom:1.5rem">
+		<div class="float" data-name="活动未开始">
+			<div class="inner">
+				<div class="txt">
+					<p class="f-tac">活动还未开始，请稍后再试！</p>
+				</div>
+				<a href="#" class="btn full" onclick="closeLayer('[data-name=活动未开始]')">知道了</a>
+			</div>
+		</div>
+		<div class="float" data-name="活动已结束">
+			<div class="inner">
+				<div class="txt">
+					<p class="f-tal">活动已结束，敬请关注中国人寿保险其他活动</p>
+				</div>
+				<a href="search.html" class="btn full">中奖查询</a>
+			</div>
+		</div>
+		<div class="float" data-name="不允许建团">
+			<div class="inner">
+				<div class="txt">
+					<p class="f-tac">您的建团数量已满，暂时无建团资格！</p>
+				</div>
+				<a href="#" class="btn full" onclick="closeLayer('[data-name=不允许建团]')">知道了</a>
+			</div>
+		</div>
+		<div class="float" data-name="不允许加团">
+			<div class="inner">
+				<div class="txt">
+					<p class="f-tac">您加团的数量已满，暂时无法加入其它团！</p>
+				</div>
+				<a href="#" class="btn full" onclick="closeLayer('[data-name=不允许加团]')">知道了</a>
+			</div>
+		</div>
+		<div class="float" data-name="不允许重复加团">
+			<div class="inner">
+				<div class="txt">
+					<p class="f-tac">您已和该团内成员组过团，不能加入该团!</p>
+				</div>
+				<a href="#" class="btn full" onclick="closeLayer('[data-name=不允许重复加团]')">知道了</a>
+			</div>
+		</div>
+		<div class="float" data-name="二维码弹层">
+			<div class="inner qr-code">
+				<img src="asset/img/ps1/qr-code.png" />
+				<p>扫描下方二维码，加入由中国人寿保险官方微信提供的99元买手机活动</p>
+			</div>
+			<a href="#" class="close" onclick="closeLayer('[data-name=二维码弹层]')"></a>
+		</div>
+		<div class="float" data-name="分享">
+			<div class="share">
+				<img src="asset/img/ps1/share.png" />
+				<p>呼朋唤友来参团，你懂的</p>
+			</div>
+			<a href="#" class="close" onclick="closeLayer('[data-name=分享]')"></a>
+		</div>
+		<div class="mask"></div>
+
+		<!--banner开始-->
+		<div class="banner">
+			<img class="img" src="" />
+		</div>
+
+		<div class="box mt25 list-join-item">
+			<h3 flex="main:justify"><span>2017/10/04&nbsp;&nbsp;20：30</span><span>团ID：Asyn0001</span></h3>
+			<div class="list-join" flex="main:justify cross:center">
+				<em class="success"></em>
+				<span onclick="pinTuan(this)"><b class="plus tx"><img src="asset/img/ps1/3.jpg"/></b><s><i class="name1">团长：</i><i class="name2">王超人</i></s></span>
+				<span onclick="pinTuan(this)"><b class="plus"></b><s><i class="name2">太郎</i></s></span>
+				<span onclick="pinTuan(this)"><b class="plus"></b><s><i class="name2">太郎</i></s></span>
+				<u></u>
+			</div>
+		</div>
+		<div class="box mt25 list-join-item">
+			<h3 flex="main:justify"><span>2017/10/04&nbsp;&nbsp;20：30</span><span>团ID：Asyn0001</span></h3>
+			<div class="list-join" flex="main:justify cross:center">
+				<em class="fail"></em>
+				<span onclick="pinTuan(this)"><b class="plus"></b><s><i class="name1">团长：</i><i class="name2">王超人王超人王超人</i></s></span>
+				<span onclick="pinTuan(this)"><b class="plus"></b><s><i class="name2">--</i></s></span>
+				<span onclick="pinTuan(this)"><b class="plus"></b><s><i class="name2">--</i></s></span>
+				<u></u>
+			</div>
+		</div>
+		<div class="box mt25 list-join-item">
+			<h3 flex="main:justify"><span>2017/10/04&nbsp;&nbsp;20：30</span><span>团ID：Asyn0001</span></h3>
+			<div class="list-join" flex="main:justify cross:center">
+				<em class="fail"></em>
+				<span onclick="pinTuan(this)"><b class="plus"></b><s><i class="name1">团长：</i><i class="name2">大二</i></s></span>
+				<span onclick="pinTuan(this)"><b class="plus"></b><s><i class="name2">--</i></s></span>
+				<span onclick="pinTuan(this)"><b class="plus"></b><s><i class="name2">--</i></s></span>
+				<u></u>
+			</div>
+		</div>
+
+		<div class="fix-bot-btns" flex="box:mean">
+			<a href="#">活动首页</a>
+			<a href="#">中奖查询</a>
+		</div>
+		<div class="count-code" data-name="统计代码">
+			<script type="text/javascript">
+				var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+				document.write(unescape("%3Cspan id='cnzz_stat_icon_1264381987'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1264381987%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var count = 0;
+		var status = 0; //0:活动未开始;1:活动进行中;2:活动已经结束;
+
+		var bannerImgm, curTime, startTime, endTime, productImg, productName, listJoin, isGuanzhu, jianTeam, jiaTeam;
+
+		$(function() {
+			$.infoInit();
+
+		})
+
+		$.infoInit = function() {
+			$.ajax({
+				type: "get",
+				url: "product.json",
+				async: false,
+				success: function(res) {
+					bannerImg = res.banner_img;
+					curTime = res.curTime;
+					startTime = res.start_time;
+					endTime = res.end_time;
+					productImg = res.product_img;
+					productName = res.product_name;
+					listJoin = res.list_join;
+					isGuanzhu = res.is_guanzhu;
+					jianTeam = res.jian_tuan;
+					jiaTeam = res.jia_team;
+
+					//设置banner
+					$(".banner .img").attr("src", bannerImg);
+
+					//设置产品
+					$(".product img").attr("src", productImg);
+					$(".product h3").html(productName);
+
+					//初始头像名字为空
+					$(".list-join s").hide();
+
+					//设置倒计时
+					var seconds, cur;
+					var timer = null;
+
+					cur = Math.floor(new Date().getTime() / 1000);
+					start = Math.floor(new Date(startTime).getTime() / 1000);
+					end = Math.floor(new Date(endTime).getTime() / 1000);
+
+					if(cur < start) {
+						clearInterval(timer)
+						status = 0;
+						console.log("活动还未开始!");
+						openLayer('[data-name=活动未开始]');
+
+					}
+
+					if(cur <= end && cur >= start) {
+						status = 1;
+						console.log("活动进行中!")
+
+						seconds = end - cur;
+						daojishi(seconds);
+
+						//请求接口定时获取拼团信息msg开始
+						var timerMsg = null;
+						$.msg()
+						timerMsg = setInterval(function() {
+							$.msg();
+						}, 20000);
+
+						//设置邀请人
+						$(".list-join s").show();
+						var joinStr = '';
+						for(var i = 0; i < listJoin.length; i++) {
+							switch(i) {
+								case 0:
+									$(".list-join span").eq(i).find('b').addClass('tx').html('<img src="' + listJoin[i].thumbs + '"/>');
+									$(".list-join span").eq(i).find('.name2').html(listJoin[i].name)
+									break;
+								default:
+									$(".list-join span").eq(i).find('b').addClass('tx').html('<img src="' + listJoin[i].thumbs + '"/>');
+									$(".list-join span").eq(i).find('.name2').html(listJoin[i].name)
+									break;
+							}
+
+						}
+						if(listJoin.length == 0) {
+							$(".list-join s").hide();
+						}
+						if(listJoin.length == 3) {
+							$(".list-join u").show();
+						}
+					}
+
+					if(cur > end) {
+						clearInterval(timer)
+						status = 2;
+						console.log("活动已经结束!");
+						openLayer('[data-name=活动已结束]');
+
+						//设置邀请人
+						$(".list-join s").show();
+						var joinStr = '';
+						for(var i = 0; i < listJoin.length; i++) {
+							switch(i) {
+								case 0:
+									$(".list-join span").eq(i).find('b').addClass('tx').html('<img src="' + listJoin[i].thumbs + '"/>');
+									$(".list-join span").eq(i).find('i').html(listJoin[i].name)
+									break;
+								default:
+									$(".list-join span").eq(i).find('b').addClass('tx').html('<img src="' + listJoin[i].thumbs + '"/>');
+									$(".list-join span").eq(i).find('s').html(listJoin[i].name)
+									break;
+							}
+						}
+						if(listJoin.length == 0) {
+							$(".list-join s").hide();
+						}
+					}
+
+					console.log("status:" + status);
+
+				}
+			});
+		}
+
+		function pinTuan(obj) {
+			//拼团邀请是否关注
+			var status = $(obj).find('b').hasClass("tx");
+			if(!status) {
+				if(isGuanzhu) {
+					//建团成功
+					openLayer('[data-name=分享]')
+				} else {
+					//弹层关注
+					openLayer('[data-name=二维码弹层]');
+				}
+			}
+		}
+
+		function createTeam() {
+			if(isGuanzhu) {
+				//建团成功并显示
+
+				$.ajax({
+					type: "get",
+					url: "creatTeam.json",
+					async: false,
+					success: function(res) {
+						var teamId = res.team_id;
+						var teamQRcode = res.team_qrcode;
+						var listJoin1 = res.list_join;
+
+						$(".btn-group[data-name=创建我的团]").hide();
+						$(".btn-group[data-name=创建我的团成功]").show();
+
+						$(".btn-group .qr-code img").attr("src", teamQRcode);
+
+						//设置邀请人
+						$(".list-join s").show();
+
+						$(".list-join span").eq(0).find('b').removeClass('tx').html('<img src="' + listJoin1[0].thumbs + '"/>');
+						$(".list-join span").eq(0).find('i').html(listJoin1[0].name)
+						$(".list-join span").eq(1).html('<b class="plus"></b><s><i>--</i></s>')
+						$(".list-join span").eq(2).html('<b class="plus"></b><s><i>--</i></s>')
+
+						if(listJoin1.length == 0) {
+							$(".list-join s").hide();
+						}
+						if(listJoin1.length == 3) {
+							$(".list-join u").show();
+						}
+					}
+				});
+			} else {
+				//弹层关注
+				openLayer('[data-name=二维码弹层]')
+			}
+		};
+
+		function showQRcode() {
+			var isShow = $(".btn-group .qr-code").css("display");
+			if(isShow == "none") {
+				$(".btn-group .qr-code").show();
+			} else {
+				$(".btn-group .qr-code").hide();
+			}
+		}
+
+		$.msg = function() {
+			var msgItem = '';
+			$.ajax({
+				type: "get",
+				url: "msg.json",
+				async: false,
+				success: function(res) {
+					var myMsg = res.msg; //信息内容(img/name/type)
+					for(var i = 0; i < myMsg.length; i++) {
+						msgItem += '<li><span class="msg-item"><img src="' + myMsg[i].img + '"/>' + myMsg[i].name + '&nbsp;&nbsp;' + myMsg[i].type + '</span></li>';
+					};
+					msgItem = '<ul class="list-msg animated fadeInDown">' + msgItem + '</ul>';
+					count++;
+					if(count == 1) {
+						$(".banner").append(msgItem);
+					} else {
+						$(".list-msg").removeClass('fadeInDown animated').addClass('fadeOutDown animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+							$(".list-msg").remove();
+							$(".banner").append(msgItem)
+						});
+					}
+				}
+			});
+		}
+	</script>
+
+</html>

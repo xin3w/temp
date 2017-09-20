@@ -1,0 +1,15 @@
+{
+	"msg":[
+		{
+			"img":"asset/img/ps1/1.jpg",
+			"name":"Mr 王",
+			"type":"拼团成功"
+		},
+		{
+			"img":"asset/img/ps1/2.jpg",
+			"name":"动力火锅",
+			"type":"发起拼团"
+		}
+	],
+	"visited":15
+}
