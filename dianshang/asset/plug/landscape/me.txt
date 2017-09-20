@@ -1,0 +1,12 @@
+<link rel="stylesheet" type="text/css" href="asset/plug/landscape/landscape.css"/>
+<div class="landscape">
+			<table>
+				<tbody>
+					<tr>
+						<td><img src="asset/plug/landscape/iphone.png" />
+							<p>为了更好的体验，请使用竖屏预览！</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>

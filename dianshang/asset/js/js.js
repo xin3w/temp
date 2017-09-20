@@ -1,7 +1,5 @@
 $(function() {
-	$(".close").click(function(){
-		$(this).closest(".mask").hide();
-	})
+
 })
 
 function daojishi(seconds) {

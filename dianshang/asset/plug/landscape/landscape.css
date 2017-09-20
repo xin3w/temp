@@ -1,0 +1,26 @@
+/*@media all and (orientation:landscape) {
+	.landscape{display: block;}
+}
+@media all and (orientation:portrait) {
+	.landscape{display: none;}
+}*/
+
+.landscape{position: fixed;left: 0;top:0;width:100%;height:100%;background-color: rgb(231, 76, 60); z-index: 9999;}
+.landscape table,.landscape td {width: 100%;height:100%;text-align: center;}
+.landscape p {font-size: 20px; color: #fff; margin-top: 20px;}
+.landscape img{ width: 75px; height: 110px;
+animation: TOUCH_DRAG_IPHONE 1.6s ease-in infinite;
+-webkit-animation: TOUCH_DRAG_IPHONE 1.6s ease-in infinite;
+}
+
+
+@keyframes TOUCH_DRAG_IPHONE{
+	0%{transform: rotate(-90deg);}
+	50%{transform: rotate(0deg)}
+	100%{transform: rotate(-90deg);}
+}
+@-webkit-keyframes TOUCH_DRAG_IPHONE{
+	0%{transform: rotate(-90deg);}
+	50%{transform: rotate(0deg)}
+	100%{transform: rotate(-90deg);}
+}

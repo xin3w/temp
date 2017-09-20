@@ -13,6 +13,7 @@
 		<meta name="format-detection" content="address=no" />
 
 		<link rel="stylesheet" href="asset/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="asset/plug/landscape/landscape.css"/>
 		<link rel="stylesheet" type="text/css" href="asset/plug/swiper/swiper-3.4.0.min.css" />
 		<link rel="stylesheet" href="asset/css/style.css" />
 
@@ -83,7 +84,7 @@
 			<div class="enter">已有<b>0</b>人参与</div>
 			<!--<img class="logo" src="asset/img/ps1/u516.png" />-->
 			<!--<ul class="list-msg animated fadeInDown"><li><span class="msg-item"><img src="接品图像"/>名字&nbsp;&nbsp;type</span></li><li><span class="msg-item"><img src="接品图像"/>名字&nbsp;&nbsp;type</span></li></ul>-->
-			
+
 		</div>
 		<div class="time-item" data-name="倒计时">
 			<strong id="day_show">00</strong>天<strong id="hour_show">00</strong>时<strong id="minute_show">00</strong>分<strong id="second_show">00</strong>秒
@@ -151,6 +152,18 @@
 				document.write(unescape("%3Cspan id='cnzz_stat_icon_1264381987'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1264381987%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
 			</script>
 		</div>
+		<!--横竖屏-->
+		<div class="landscape" style="display: none;">
+			<table>
+				<tbody>
+					<tr>
+						<td><img src="asset/plug/landscape/iphone.png" />
+							<p>为了更好的体验，请使用竖屏预览！</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</body>
 
 	<script type="text/javascript">
@@ -158,7 +171,7 @@
 		var status = 0; //0:活动未开始;1:活动进行中;2:活动已经结束;
 		var teamID = getQueryString("teamid");
 
-		var bannerImg, bannerImg2, curTime, startTime, endTime, productImg, productName, listJoin, isGuanzhu, jianTeam, jiaTeam,visited;
+		var bannerImg, bannerImg2, curTime, startTime, endTime, productImg, productName, listJoin, isGuanzhu, jianTeam, jiaTeam, visited;
 
 		$(function() {
 			$.infoInit();
@@ -181,7 +194,6 @@
 					isGuanzhu = res.is_guanzhu;
 					jianTeam = res.jian_team;
 					jiaTeam = res.jia_team;
-					
 
 					//设置banner
 					$(".banner .img").attr("src", bannerImg);
@@ -397,7 +409,7 @@
 				url: "msg.json",
 				async: false,
 				success: function(res) {
-					visited=res.visited;
+					visited = res.visited;
 					var myMsg = res.msg; //信息内容(img/name/type)
 					for(var i = 0; i < myMsg.length; i++) {
 						msgItem += '<li><span class="msg-item"><img src="' + myMsg[i].img + '"/>' + myMsg[i].name + count + '&nbsp;&nbsp;' + myMsg[i].type + '</span></li>';
@@ -405,7 +417,7 @@
 					msgItem = '<ul class="list-msg animated fadeInDownThenhide">' + msgItem + '</ul>';
 					count++;
 					$(".banner").append(msgItem);
-					
+
 					$(".enter b").html(visited);
 				}
 			});
