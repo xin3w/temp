@@ -13,7 +13,7 @@
 		<meta name="format-detection" content="address=no" />
 
 		<link rel="stylesheet" href="asset/css/reset.css" />
-		<link rel="stylesheet" type="text/css" href="asset/plug/landscape/landscape.css"/>
+		<link rel="stylesheet" type="text/css" href="asset/plug/landscape/landscape.css" />
 		<link rel="stylesheet" type="text/css" href="asset/plug/swiper/swiper-3.4.0.min.css" />
 		<link rel="stylesheet" href="asset/css/style.css" />
 
@@ -23,6 +23,11 @@
 	</head>
 
 	<body>
+
+		<div class="loader">
+			<img src="asset/img/ps1/logo.png" />
+		</div>
+
 		<div class="float" data-name="活动未开始">
 			<div class="inner">
 				<div class="txt">
@@ -182,6 +187,7 @@
 				type: "get",
 				url: "product.json",
 				async: false,
+				dataType: "json",
 				success: function(res) {
 					bannerImg = res.banner_img;
 					bannerImg2 = res.banner_img2;
@@ -194,7 +200,6 @@
 					isGuanzhu = res.is_guanzhu;
 					jianTeam = res.jian_team;
 					jiaTeam = res.jia_team;
-
 					//设置banner
 					$(".banner .img").attr("src", bannerImg);
 
@@ -204,11 +209,9 @@
 
 					//初始头像名字为空
 					$(".list-join s").hide();
-
 					//设置倒计时
 					var seconds, cur;
 					var timer = null;
-
 					cur = Math.floor(new Date().getTime() / 1000);
 					start = Math.floor(new Date(startTime).getTime() / 1000);
 					end = Math.floor(new Date(endTime).getTime() / 1000);
@@ -350,6 +353,7 @@
 							type: "get",
 							url: "creatTeam.json",
 							async: false,
+							dataType: "json",
 							success: function(res) {
 								var teamId = res.team_id;
 								var teamQRcode = res.team_qrcode;
@@ -408,6 +412,7 @@
 				type: "get",
 				url: "msg.json",
 				async: false,
+				dataType: "json",
 				success: function(res) {
 					visited = res.visited;
 					var myMsg = res.msg; //信息内容(img/name/type)
@@ -430,6 +435,14 @@
 				openLayer('[data-name=不允许加团]');
 			}
 		}
+		$(function() {
+			var loadTime = null;
+			loadTime = setTimeout(function() {
+				$('.loader').addClass('fadeOut animated2').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+					$(this).hide();
+				});
+			}, 3000)
+		})
 	</script>
 
 </html>
