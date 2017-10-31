@@ -20,9 +20,59 @@
 		</style>
 		<script type="text/javascript">
 			var appID = 'wx70f472417cc24a3a';
-			var appsecret = '73ba83184815aaf1605fa73e1051b6ba';
-			var backUrl = encodeURIComponent(window.location.href);
-			window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0e81c3bee622d60&redirect_uri=http%3A%2F%2Fnba.bluewebgame.com%2Foauth_response.php&response_type=code&scope = snsapi_userinfo&state=STATE#wechat_redirect'
+			$.ajax({
+				type: "get",
+				url: "getUserInfo",
+				async: false,
+				success: function(res) {
+					if(res) {
+						//如果成功返回的是用户信息
+					} else {
+						//无用户信息
+						getUserInfoByCode()
+					}
+				}
+			});
+
+			function getUserInfoByCode() {
+				//判断url是否存在code
+				var code = GetQueryString("code");
+				if(code) {
+					//有code
+					$.ajax({
+						type: "get",
+						url: "getUserInfoByCode",
+						data: {
+							"code": code
+						},
+						async: false,
+						success: function(res) {
+							if(res) {
+								//如果成功返回的是用户信息
+							} else {
+								//无用户信息
+								console.log("未知错误!")
+							}
+						}
+					});
+				} else {
+					//无code
+					//url跳转到微信授权地址带上回调地址和回调参数,用户授权后url会回跳到回调地址并带上参数和code
+					var backUrl = encodeURI(location.href);
+					location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appID + '&redirect_uri=' + backUrl + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
+				}
+			}
+
+			function GetQueryString(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+				var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+				var context = "";
+				if(r != null)
+					context = r[2];
+				reg = null;
+				r = null;
+				return context == null || context == "" || context == "undefined" ? "" : context;
+			}
 		</script>
 	</head>
 
